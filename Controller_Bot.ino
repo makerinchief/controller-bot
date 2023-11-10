@@ -1,18 +1,16 @@
 /*
   Controller Bot
+  Justin C Kirk
 
-  Parts:
+  Makerinchief 
+  www.makerinchief.com
+  info@makerinchief.com
 
-  2 x Joystick Modules
-  1 x Arduino Nano
-  1 x Nano Breakout Board with headers for NRF2401 module
-  1 x NRF2401 2.4gHz Radio Transceiver
-  1 x 5 AA Battery Holder
-  5 x 1.2V NiMh AA Batteries
-  1 x Breadboard Half Size
+  Please read README.md for details
 */
 
 #include "datatypes.h"
+
 JoyStickValues joystick_vals;
 TankBotPacket tank_packet;
 
@@ -49,7 +47,8 @@ void loop() {
   if (controller_current - controller_previous > controller_interval) {
 
     joystick_vals = joysticks_read();
-    //    joysticks_print_values();
+
+    //  joysticks_print_values();
     //  display_joysticks(joystick_vals);
 
     int l_spd = map(joystick_vals.left_y, 0, 1023, 256, -256);
