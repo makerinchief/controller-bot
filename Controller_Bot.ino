@@ -37,7 +37,8 @@ void setup() {
     Serial.println("!NO RADIO FOUND!");
     display_text(1, 0, "NO RADIO FOUND");
   }
-
+  delay(1000);
+  display_clear();
 }
 
 void loop() {
@@ -48,9 +49,9 @@ void loop() {
 
     joystick_vals = joysticks_read();
 
-    //  joysticks_print_values();
-    //  display_joysticks(joystick_vals);
-
+    // joysticks_print_values();
+    display_joysticks(joystick_vals);
+    
     int l_spd = map(joystick_vals.left_y, 0, 1023, 256, -256);
     int r_spd = map(joystick_vals.right_y, 0, 1023, 256, -256);
     char direction;
@@ -83,19 +84,18 @@ void loop() {
       direction = 'r';
     }
 
-    if (abs(l_spd) <= axis_threshold &&
-        abs(r_spd) <= axis_threshold) {
+    if (abs(l_spd) <= axis_threshold && abs(r_spd) <= axis_threshold) {
       direction = 's';
     }
 
     tank_packet.direction = direction;
 
-    Serial.print("L SPD: ");
-    Serial.print(abs(l_spd));
-    Serial.print(" R SPD: ");
-    Serial.print(abs(r_spd));
-    Serial.print(" DIR: ");
-    Serial.println(direction);
+    // Serial.print("L SPD: ");
+    // Serial.print(abs(l_spd));
+    // Serial.print(" R SPD: ");
+    // Serial.print(abs(r_spd));
+    // Serial.print(" DIR: ");
+    // Serial.println(direction);
 
     radio_send_tankbot(tank_packet);
     controller_previous = controller_previous;
