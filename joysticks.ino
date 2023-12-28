@@ -15,10 +15,7 @@ unsigned long joystick_current = 0;
 unsigned long joystick_previous = 0;
 long joystick_interval = 10;
 
-
 JoyStickValues joystick_values;
-
-
 
 void joysticks_init() {
   pinMode(RB_PIN, INPUT_PULLUP);

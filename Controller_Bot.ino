@@ -9,7 +9,43 @@
   Please read README.md for details
 */
 
+//NRFLite is used to make communication easy
+//https://github.com/dparson55/NRFLite
+#include <SPI.h>
+#include <NRFLite.h>
 #include "datatypes.h"
+
+NRFLite controller_radio;
+ControllerPacket controller_packet;
+
+typedef struct TestStruct {
+  int val_1;
+  int val_2;
+};
+
+typedef struct JoyStickValues {
+  int16_t left_x;
+  int16_t left_y;
+  int16_t left_b;
+  int16_t right_x;
+  int16_t right_y;
+  int16_t right_b;
+};
+
+typedef struct ControllerPacket {
+  int16_t left_x;
+  int16_t left_y;
+  int16_t left_b;
+  int16_t right_x;
+  int16_t right_y;
+  int16_t right_b;
+};
+
+typedef struct TankBotPacket {
+  char direction;
+  int16_t left_speed;
+  int16_t right_speed;
+};
 
 JoyStickValues joystick_vals;
 TankBotPacket tank_packet;
