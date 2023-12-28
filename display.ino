@@ -91,38 +91,4 @@ void display_joysticks(struct JoyStickValues &values) {
   display_number(1, 3, rx);
   display_text(1, 8, "RY:");
   display_number(1, 11, ry);
-
-  // String top_string = "";
-  // String bottom_string = "";
-  // if (lx < 1000) {
-  //   top_string += "LX: ";
-  // } else {
-  //   top_string += "LX:";
-  // }
-  // top_string += String(lx);
-  // top_string += " ";
-  // if (ly < 1000) {
-  // top_string += "LY: ";
-  // } else {
-  // top_string += "LY:";
-  // }
-  // top_string += String(ly);
-  // controller_lcd.print(top_string);
-  // //Bottom Row
-  // controller_lcd.setCursor(0, 1);
-  // if (rx < 1000) {
-  //   bottom_string += "RX: ";
-  // } else {
-  //   bottom_string += "RX:";
-  // }
-  // bottom_string += String(rx);
-  // bottom_string += " ";
-  // if (ry < 1000) {
-  //   bottom_string += "RY: ";
-  // } else {
-  //   bottom_string += "RY:";
-  // }
-  // bottom_string += String(ry);
-  // bottom_string += " ";
-  // controller_lcd.print(bottom_string);
 }
