@@ -49,7 +49,7 @@ void loop() {
 
     joystick_vals = joysticks_read();
 
-    // joysticks_print_values();
+    joysticks_print_values();
     display_joysticks(joystick_vals);
     
     int l_spd = map(joystick_vals.left_y, 0, 1023, 256, -256);
